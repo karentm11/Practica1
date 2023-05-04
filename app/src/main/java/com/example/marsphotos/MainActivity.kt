@@ -20,6 +20,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.example.marsphotos.ui.MarsPhotosApp
+import com.example.marsphotos.ui.screens.MarsViewModel
 import com.example.marsphotos.ui.theme.MarsPhotosTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,7 +28,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MarsPhotosTheme {
-                MarsPhotosApp()
+                val viewModel: MarsViewModel =
+                    viewModel(factory = MarsViewModel.Factory)
+                MarsPhotosApp(viewModel)
             }
         }
     }
